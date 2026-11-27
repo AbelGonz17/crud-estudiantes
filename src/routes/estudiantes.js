@@ -1,5 +1,6 @@
 const express = require('express');
 const store = require('../data/store');
+const { validarEstudiante } = require('../validators/estudiante');
 
 const router = express.Router();
 
@@ -14,14 +15,18 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { matricula, nombre, apellido, email, carrera } = req.body;
-  const nuevo = store.crear({ matricula, nombre, apellido, email, carrera });
+  const { datos, errores } = validarEstudiante(req.body);
+  if (errores.length) return res.status(400).json({ errores });
+
+  const nuevo = store.crear(datos);
   res.status(201).json(nuevo);
 });
 
 router.put('/:id', (req, res) => {
-  const { matricula, nombre, apellido, email, carrera } = req.body;
-  const actualizado = store.actualizar(Number(req.params.id), { matricula, nombre, apellido, email, carrera });
+  const { datos, errores } = validarEstudiante(req.body);
+  if (errores.length) return res.status(400).json({ errores });
+
+  const actualizado = store.actualizar(Number(req.params.id), datos);
   if (!actualizado) return res.status(404).json({ error: 'Estudiante no encontrado' });
   res.json(actualizado);
 });
