@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "matricula": "2022-0001",
+    "nombre": "María",
+    "apellido": "Pérez",
+    "email": "maria.perez@ejemplo.com",
+    "carrera": "Desarrollo de Software",
+    "creadoEn": "2026-11-20T12:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "matricula": "2023-0145",
+    "nombre": "José",
+    "apellido": "Ramírez",
+    "email": "jose.ramirez@ejemplo.com",
+    "carrera": "Redes de Información",
+    "creadoEn": "2026-11-20T12:05:00.000Z"
+  }
+]
