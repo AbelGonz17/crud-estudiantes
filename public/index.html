@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Estudiantes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Registro de Estudiantes</h1>
+
+    <form id="formulario">
+      <input type="hidden" id="id">
+      <div class="campos">
+        <label>Matrícula <input id="matricula" placeholder="2022-1328" required></label>
+        <label>Nombre <input id="nombre" required></label>
+        <label>Apellido <input id="apellido" required></label>
+        <label>Correo <input id="email" type="email" required></label>
+        <label>Carrera <input id="carrera" required></label>
+      </div>
+      <div class="acciones">
+        <button type="submit" id="btnGuardar">Agregar</button>
+        <button type="button" id="btnCancelar" class="secundario" hidden>Cancelar</button>
+      </div>
+      <ul id="errores"></ul>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Matrícula</th><th>Nombre</th><th>Correo</th><th>Carrera</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="tabla"></tbody>
+    </table>
+    <p id="vacio" hidden>No hay estudiantes registrados.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
